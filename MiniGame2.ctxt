@@ -1,11 +1,21 @@
 #BlueJ class context
 comment0.params=
-comment0.target=MiniGame2()
+comment0.target=java.util.List\ getListnul()
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ MiniGame1.\r\n\ \r\n
 comment1.params=
-comment1.target=void\ prepareWorld()
+comment1.target=java.util.List\ getListeen()
 comment2.params=
-comment2.target=void\ prepare()
-comment3.params=main\ count
-comment3.target=void\ addToList(MainContainer,\ int)
-numComments=4
+comment2.target=java.util.List\ getListtwee()
+comment3.params=
+comment3.target=java.util.List\ getListdrie()
+comment4.params=
+comment4.target=java.util.List\ getAllList()
+comment5.params=
+comment5.target=MiniGame2()
+comment6.params=
+comment6.target=void\ prepareWorld()
+comment7.params=
+comment7.target=void\ prepare()
+comment8.params=main\ count
+comment8.target=void\ addToList(MainContainer,\ int)
+numComments=9

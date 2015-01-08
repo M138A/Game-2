@@ -72,6 +72,13 @@ public class Containergame2 extends Vehicle
      * returns a random number for the container type
      */
     public int getRandomContainerType(){
+        /*
+        List<MainContainer> nul = ((MiniGame2) getWorld()).getAllList();   
+        if(!nul.isEmpty()){
+        int random = Greenfoot.getRandomNumber(nul.size());
+        MainContainer x = nul.get(random);
+        getWorld().addObject(x,500,500);
+    }*/
         return Greenfoot.getRandomNumber(4);
     }
 

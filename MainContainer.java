@@ -77,6 +77,7 @@ public class MainContainer extends Actor
         impSize = newSize;
         impColor = newColor;
     }
+    
 
     public void setImage(int a, int b) 
     {

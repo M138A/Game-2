@@ -15,14 +15,13 @@ public class MiniGame2 extends World
     public List<MainContainer> containerseen = new ArrayList();
     public List<MainContainer> containerstwee = new ArrayList();
     public List<MainContainer> containersdrie = new ArrayList();
-        public List<MainContainer> containersOnBoatUpperRow  = new ArrayList();
     private int YtopSmall = 184;
     private int YbottomSmall = 268;
     private int YtopLarge = 202;
     private int YbottomLarge = 248;
     private int YmarginTop;
     private int YmarginBottom;
-   
+
     private int colorCont;
     private int sizeCont;
     private int sizeCont2;
@@ -31,13 +30,41 @@ public class MiniGame2 extends World
      * Constructor for objects of class MiniGame1.
      * 
      */
+    public List<MainContainer> getListnul()
+    {
+        return containersnul;
+    }
+
+    public List<MainContainer> getListeen()
+    {
+        return containerseen;
+    }
+
+    public List<MainContainer> getListtwee()
+    {
+        return containerstwee;
+    }
+
+    public List<MainContainer> getListdrie()
+    {
+        return containersdrie;
+    }
+    public List<MainContainer> getAllList()
+    {
+        List<MainContainer> Total = new ArrayList();
+        Total.addAll(containersnul);
+        Total.addAll(containerseen);
+        Total.addAll(containerstwee);
+        Total.addAll(containersdrie);
+        return Total;
+    }
+
     public MiniGame2()
     {    
         // Create a new world with 900x900 cells with a cell size of 1x1 pixels.
         super(900, 900, 1); 
         prepare();
-        prepareWorld();
-        
+        prepareWorld();        
     }   
 
     private void prepareWorld()
@@ -45,9 +72,9 @@ public class MiniGame2 extends World
         Truck x = new Truck(4);
         addObject(x, 108,900);
         Train t = new Train();
-        addObject(t, 40,900);
-        
+        addObject(t, 40,900);        
     }
+
     private void prepare()
     {
         int counter = 0;
@@ -56,7 +83,7 @@ public class MiniGame2 extends World
                 colorCont = Greenfoot.getRandomNumber(2) + 1;
                 sizeCont = Greenfoot.getRandomNumber(2) + 1;
                 colorCont2 = Greenfoot.getRandomNumber(2) + 1;
-                
+
                 if (sizeCont == 1){
                     YmarginTop = YtopSmall;
                     YmarginBottom = YbottomLarge;
@@ -69,32 +96,29 @@ public class MiniGame2 extends World
                 MainContainer x = new MainContainer(sizeCont,colorCont);
                 addToList(x,counter);
                 addObject(x, Xmargin, YmarginTop);
-                
+
                 if (sizeCont == 1){           
                     MainContainer y =new MainContainer(sizeCont2,colorCont2);
-                     addToList(y, counter);
+                    addToList(y, counter);
                     addObject(y, Xmargin, YmarginBottom);
                 } else if (sizeCont == 2){
                     MainContainer z =new MainContainer(sizeCont2,colorCont2);
                     addToList(z,counter);
                     addObject(z, Xmargin, YmarginBottom);
                 }
-                
+
                 Xmargin = Xmargin + 32; 
             }
             counter++;
             Xmargin = 284;
-            
+
             YtopSmall = YtopSmall + 144;
             YbottomSmall = YbottomSmall + 144;
             YtopLarge = YtopLarge + 144;
             YbottomLarge = YbottomLarge + 144;
-        }
-        System.out.println(containersnul);
-        System.out.println(containerseen);
-        System.out.println(containerstwee);
-        System.out.println(containersdrie);        
+        }             
     }
+
     private void addToList(MainContainer main, int count)
     {
         switch(count){
@@ -103,7 +127,5 @@ public class MiniGame2 extends World
             case 2 : containerstwee.add(main); break;
             case 3 : containersdrie.add(main); break;        
         }
-    }
-    
-    
+    }   
 }

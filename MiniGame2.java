@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 /**
  * Write a description of class MiniGame1 here.
  * 
@@ -10,7 +11,11 @@ public class MiniGame2 extends World
     public boolean loadedTrucksCanMove = false;
     private int Counter = 0;
     private int Xmargin = 284;
-
+    public List<MainContainer> containersnul = new ArrayList();
+    public List<MainContainer> containerseen = new ArrayList();
+    public List<MainContainer> containerstwee = new ArrayList();
+    public List<MainContainer> containersdrie = new ArrayList();
+        public List<MainContainer> containersOnBoatUpperRow  = new ArrayList();
     private int YtopSmall = 184;
     private int YbottomSmall = 268;
     private int YtopLarge = 202;
@@ -45,6 +50,7 @@ public class MiniGame2 extends World
     }
     private void prepare()
     {
+        int counter = 0;
         for (int u = 0; u < 4; u++) {
             for (int i = 0; i < 5; i++) {
                 colorCont = Greenfoot.getRandomNumber(2) + 1;
@@ -60,23 +66,42 @@ public class MiniGame2 extends World
                     YmarginBottom = YbottomSmall;
                     sizeCont2 = 1;
                 }
-                addObject(new MainContainer(sizeCont,colorCont), Xmargin, YmarginTop);
+                MainContainer x = new MainContainer(sizeCont,colorCont);
+                addToList(x,counter);
+                addObject(x, Xmargin, YmarginTop);
                 
-                if (sizeCont == 1){
-                    addObject(new MainContainer(sizeCont2,colorCont2), Xmargin, YmarginBottom);
+                if (sizeCont == 1){           
+                    MainContainer y =new MainContainer(sizeCont2,colorCont2);
+                     addToList(y, counter);
+                    addObject(y, Xmargin, YmarginBottom);
                 } else if (sizeCont == 2){
-                    addObject(new MainContainer(sizeCont2,colorCont2), Xmargin, YmarginBottom);
+                    MainContainer z =new MainContainer(sizeCont2,colorCont2);
+                    addToList(z,counter);
+                    addObject(z, Xmargin, YmarginBottom);
                 }
                 
                 Xmargin = Xmargin + 32; 
             }
-            
+            counter++;
             Xmargin = 284;
             
             YtopSmall = YtopSmall + 144;
             YbottomSmall = YbottomSmall + 144;
             YtopLarge = YtopLarge + 144;
             YbottomLarge = YbottomLarge + 144;
+        }
+        System.out.println(containersnul);
+        System.out.println(containerseen);
+        System.out.println(containerstwee);
+        System.out.println(containersdrie);        
+    }
+    private void addToList(MainContainer main, int count)
+    {
+        switch(count){
+            case 0 : containersnul.add(main); break;
+            case 1 : containerseen.add(main);break;
+            case 2 : containerstwee.add(main); break;
+            case 3 : containersdrie.add(main); break;        
         }
     }
     

@@ -10,7 +10,7 @@ public class MainContainer extends Actor
 {
     private int color;
     private int size;
-    
+
     private int contGoneX;
     private int contGoneY;
 

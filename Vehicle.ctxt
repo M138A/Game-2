@@ -1,20 +1,20 @@
 #BlueJ class context
 comment0.params=
 comment0.target=boolean\ getTruckState()
-comment0.text=\n\ Returns\ the\ condition\ that\ regulates\ the\ truck\ movement\n
+comment0.text=\r\n\ Returns\ the\ condition\ that\ regulates\ the\ truck\ movement\r\n
 comment1.params=
 comment1.target=boolean\ getTrainState()
-comment1.text=\n\ Returns\ the\ condition\ that\ regulates\ the\ train\ movement\n
+comment1.text=\r\n\ Returns\ the\ condition\ that\ regulates\ the\ train\ movement\r\n
 comment2.params=
 comment2.target=void\ stopTruck()
-comment2.text=\n\ Stops\ the\ truck\n
+comment2.text=\r\n\ Stops\ the\ truck\r\n
 comment3.params=
 comment3.target=void\ allowTruckToMove()
-comment3.text=\n\ Allows\ the\ truck\ to\ move\n
+comment3.text=\r\n\ Allows\ the\ truck\ to\ move\r\n
 comment4.params=
 comment4.target=void\ stopTrain()
-comment4.text=\n\ Stops\ the\ train\n
+comment4.text=\r\n\ Stops\ the\ train\r\n
 comment5.params=
 comment5.target=void\ allowTrainToMove()
-comment5.text=\n\ Allows\ the\ train\ to\ move\n
+comment5.text=\r\n\ Allows\ the\ train\ to\ move\r\n
 numComments=6

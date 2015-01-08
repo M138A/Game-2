@@ -1,20 +1,20 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\n\ Act\ -\ do\ whatever\ the\ Train\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Train\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment1.params=spawnPoint
 comment1.target=void\ createNewWagon(int)
-comment1.text=\n\ Creates\ a\ new\ wagon\ and\ adds\ it\ to\ the\ world\n
+comment1.text=\r\n\ Creates\ a\ new\ wagon\ and\ adds\ it\ to\ the\ world\r\n
 comment2.params=
 comment2.target=boolean\ allWagonsLoaded()
-comment2.text=\n\ Returns\ true\ when\ all\ the\ wagons\ are\ loaded\n
+comment2.text=\r\n\ Returns\ true\ when\ all\ the\ wagons\ are\ loaded\r\n
 comment3.params=
 comment3.target=boolean\ trainHasToStop()
-comment3.text=\n\ Returns\ true\ when\ the\ train\ has\ arrived\ at\ it's\ stopping\ point\n
+comment3.text=\r\n\ Returns\ true\ when\ the\ train\ has\ arrived\ at\ it's\ stopping\ point\r\n
 comment4.params=
 comment4.target=void\ requestNewWagon()
-comment4.text=\n\ Creates\ a\ new\ wagon\ if\ needed\n
+comment4.text=\r\n\ Creates\ a\ new\ wagon\ if\ needed\r\n
 comment5.params=
 comment5.target=void\ moveTrain()
-comment5.text=\n\ Moves\ the\ train\ at\ a\ certain\ speed\n
+comment5.text=\r\n\ Moves\ the\ train\ at\ a\ certain\ speed\r\n
 numComments=6

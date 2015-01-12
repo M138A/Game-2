@@ -48,7 +48,7 @@ public class Truck extends Vehicle
     private void spawnContainer()
     {
         if(getY() == 850){
-            Containergame2 c = new Containergame2();
+            Containergame2 c = new Containergame2((MiniGame2) getWorld());
             getWorld().addObject(c,108,900);
         }
     }

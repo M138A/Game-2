@@ -15,6 +15,7 @@ public class MiniGame2 extends World
     public List<MainContainer> containerseen = new ArrayList();
     public List<MainContainer> containerstwee = new ArrayList();
     public List<MainContainer> containersdrie = new ArrayList();
+    public List<MainContainer> allContainersOnBoat = new ArrayList();
     private int YtopSmall = 184;
     private int YbottomSmall = 268;
     private int YtopLarge = 202;
@@ -30,34 +31,24 @@ public class MiniGame2 extends World
      * Constructor for objects of class MiniGame1.
      * 
      */
-    public List<MainContainer> getListnul()
+    private void joinSeperateLists()
     {
-        return containersnul;
+        allContainersOnBoat.addAll(containersnul);
+        allContainersOnBoat.addAll(containerseen);
+        allContainersOnBoat.addAll(containerstwee);
+        allContainersOnBoat.addAll(containersdrie);
     }
 
-    public List<MainContainer> getListeen()
-    {
-        return containerseen;
+    public void removeFromList(int index){
+        allContainersOnBoat.remove(index);
     }
 
-    public List<MainContainer> getListtwee()
+    public List<MainContainer> getContainerList()
     {
-        return containerstwee;
+        return allContainersOnBoat;
     }
 
-    public List<MainContainer> getListdrie()
-    {
-        return containersdrie;
-    }
-    public List<MainContainer> getAllList()
-    {
-        List<MainContainer> Total = new ArrayList();
-        Total.addAll(containersnul);
-        Total.addAll(containerseen);
-        Total.addAll(containerstwee);
-        Total.addAll(containersdrie);
-        return Total;
-    }
+    
 
     public MiniGame2()
     {    
@@ -116,9 +107,9 @@ public class MiniGame2 extends World
             YbottomSmall = YbottomSmall + 144;
             YtopLarge = YtopLarge + 144;
             YbottomLarge = YbottomLarge + 144;
-        }             
+        }  
+        joinSeperateLists();
     }
-
     private void addToList(MainContainer main, int count)
     {
         switch(count){

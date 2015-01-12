@@ -27,18 +27,33 @@ public class Train extends Vehicle
         }
         if(isAtEdge())
         {
-            Train t = new Train();
+            
+            addNewTrain();
+            
+        }
+    }  
+    private void addNewTrain()
+    {
+        MiniGame2 game = (MiniGame2) getWorld();
+        int sz = (game.getContainerList()).size();
+        if(sz >= 3){
+        Train t = new Train();
             getWorld().addObject(t,40,900);
             getWorld().removeObject(this);
         }
-    }  
+        else{
+        getWorld().removeObject(this);
+    }
+        
+    }
     /**
      * Creates a new wagon and adds it to the world
      */
+    
     private void createNewWagon(int spawnPoint)
     {
 
-        Wagon w = new Wagon(spawnPoint);
+        Containergame2 w = new Wagon((MiniGame2) getWorld());
         getWorld().addObject(w,40,900);
     }
     /**

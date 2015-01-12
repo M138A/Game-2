@@ -7,16 +7,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Wagon extends Containergame2
 {    
+    
     private int keepMoving ;
     private int stoppingMarker;
     private int speed = 1;
-
-    public Wagon(int addedPosition)
+    private boolean trainSet = false;
+    private Train x;
+    public Wagon(MiniGame2 x)
     {
-        stoppingMarker = addedPosition;
-        setContainer(getRandomContainerType());
-
+        super(x);
     }
+   
     /**
      * Act - do whatever the Wagon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -24,12 +25,16 @@ public class Wagon extends Containergame2
     public void act() 
     {
         // Add your action code here.  
-        Train x = (Train) getWorld().getObjects(Train.class).get(0);
+        if(!trainSet){
+            x=(Train) getWorld().getObjects(Train.class).get(0);
+            System.out.println("method trainSet() executed");
+            trainSet = true;
+        }
         if(x.speed == 1 ){
             moveWagon();
         }
         if(isAtEdge())
-        {
+        { 
             getWorld().removeObject(this);     
 
         }

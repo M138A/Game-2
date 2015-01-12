@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
+import java.io.*;
 /**
  * Write a description of class Container here.
  * 
@@ -16,6 +17,7 @@ public class Containergame2 extends Vehicle
     private final String bigContainerLightImageFullPath = "images/Small/big-light.png";
     private final String smallContainerDarkImageFullPath = "images/Small/small-dark.png";
     private final String smallContainerLightImageFullPath = "images/Small/small-light.png";
+
     /**
      * The speed of the container
      */
@@ -24,23 +26,26 @@ public class Containergame2 extends Vehicle
      * True when the container is loaded
      */
     public boolean loaded = false;
+    private boolean imageSet;
+    
     /**
      * The type of the container
      */
     public int t;
+    public int index;
 
-    
-    public Containergame2(){
-
-        setContainer(getRandomContainerType());
+    public Containergame2(MiniGame2 theWorld){
+         setContainer(getRandomContainerType(theWorld));
+        //imageSet = false; 
     }
+
     /**
      * Sets the correct image for the container
      * 
-     */
-    public void setContainer(int type)
+    */
+   public void setContainer(int type)
     {
-        t = type;
+       t = type;
         if(loaded == false){
             switch(type)
             {
@@ -65,26 +70,43 @@ public class Containergame2 extends Vehicle
                 break;
                 case 3: setImage(smallContainerLightImageFullPath);
                 break;
+                
             }
         }
     }
+
     /**
      * returns a random number for the container type
      */
-    public int getRandomContainerType(){
-        /*
-        List<MainContainer> nul = ((MiniGame2) getWorld()).getAllList();   
-        if(!nul.isEmpty()){
-        int random = Greenfoot.getRandomNumber(nul.size());
-        MainContainer x = nul.get(random);
-        getWorld().addObject(x,500,500);
-    }*/
-        return Greenfoot.getRandomNumber(4);
+    public int getRandomContainerType(MiniGame2 myWorld){
+        List<MainContainer> CList = myWorld.getContainerList();
+        if(CList.size() > 0){
+        int random = Greenfoot.getRandomNumber(CList.size());
+        System.out.println(random);
+        MainContainer x = CList.get(random);
+        int size = x.impSize;
+        int color = x.impColor;
+        myWorld.removeFromList(random);
+        return x.convertType(size,color);
+    }
+   
+    else{
+            myWorld.showText("Well done",400,300);
+            Greenfoot.stop();
+            return 0;
+    }
+
+        //System.out.println(myWorld.getContainerList());
+    
+        //return Greenfoot.getRandomNumber(4);
     }
 
     public void act() 
     {
+        
         if(isAtEdge() && checkLoadingState()){
+            //MiniGame2 w = (MiniGame2) getWorld();
+            //w.removeFromList(index);
             getWorld().removeObject(this);
             return;
         }
@@ -102,21 +124,23 @@ public class Containergame2 extends Vehicle
             moveContainer();
             return;
         }
-        
+
         if(checkLoadingState())
         {
             this.allowTruckToMove();
             getPullingTruck().allowTruckToMove();
             return;
         }
-        
+
     }    
+
     /**
      * returns true when the container is loaded
      */
     public boolean checkLoadingState(){
         return loaded;
     }
+
     /**
      * Moves the container up at a certain speed
      */
@@ -124,6 +148,7 @@ public class Containergame2 extends Vehicle
     {
         this.setLocation(getX(), getY() - speed);
     }
+
     /**
      * Returns the truck that is pulling the container forward
      */
@@ -131,6 +156,7 @@ public class Containergame2 extends Vehicle
     {
         return (Truck) getWorld().getObjects(Truck.class).get(0);
     }
+
     /**
      * Stops the truck when the Y is 450 and the container is not loaded
      */
@@ -149,6 +175,7 @@ public class Containergame2 extends Vehicle
         return false;
 
     }
+
     /**
      * Creates a new truck
      */
@@ -157,6 +184,7 @@ public class Containergame2 extends Vehicle
         Truck x = new Truck(4);
         getWorld().addObject(x,108,900);
     }
+
     /**
      * Returns true when a new truck is needed
      */

@@ -51,7 +51,7 @@ public class MainContainer extends Actor
 
     }
     
-    private int convertType(int size, int color)
+    public int convertType(int size, int color)
     {
         if(size == 1 && color == 1){
             return 3;

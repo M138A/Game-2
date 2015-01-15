@@ -87,7 +87,7 @@ public class Containergame2 extends Vehicle
         List<MainContainer> CList = myWorld.getContainerList();
         if(CList.size() > 0){
             int random = Greenfoot.getRandomNumber(CList.size());
-            System.out.println(random);
+            
             MainContainer x = CList.get(random);
             int size = x.impSize;
             int color = x.impColor;

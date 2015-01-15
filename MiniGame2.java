@@ -8,15 +8,18 @@ import java.util.*;
  */
 public class MiniGame2 extends World
 {
-    private int totalScore = 0;
-    public boolean loadedTrucksCanMove = false;
-    private int Counter = 0;
-    private int Xmargin = 284;
     public List<MainContainer> containersnul = new ArrayList();
     public List<MainContainer> containerseen = new ArrayList();
     public List<MainContainer> containerstwee = new ArrayList();
     public List<MainContainer> containersdrie = new ArrayList();
     public List<MainContainer> allContainersOnBoat = new ArrayList();
+    
+    private int totalScore = 0;
+    private int Counter = 0;
+    public boolean loadedTrucksCanMove = false;    
+    
+    private int Xmargin = 284;
+
     private int YtopSmall = 184;
     private int YbottomSmall = 268;
     private int YtopLarge = 202;
@@ -29,21 +32,29 @@ public class MiniGame2 extends World
     private int sizeCont2;
     private int colorCont2;
     /**
-     * Constructor for objects of class MiniGame1.
-     * 
+     * Increments the score by a certain value
      */
     public void setScore(int sc)
     {
         totalScore += sc;
     }
+    /**
+     * Returns the current score
+     */
     public int getScore()
     {
         return totalScore;
     }
+    /**
+     * Shows the score in the world
+     */
     public void showScore()
     {
         this.showText(getScore() + "", 880,20);
     }
+    /**
+     * Joins all the seperate lists
+     */
     private void joinSeperateLists()
     {
         allContainersOnBoat.addAll(containersnul);
@@ -51,18 +62,24 @@ public class MiniGame2 extends World
         allContainersOnBoat.addAll(containerstwee);
         allContainersOnBoat.addAll(containersdrie);
     }
-
+    /**
+     * Removes an item from the list
+     */
     public void removeFromList(int index){
         allContainersOnBoat.remove(index);
     }
-
+    /**
+     * Returns the list with all the containers in it
+     */
     public List<MainContainer> getContainerList()
     {
         return allContainersOnBoat;
     }
 
-    
-
+    /**
+     * Constructor for objects of class MiniGame1.
+     * 
+     */
     public MiniGame2()
     {    
         // Create a new world with 900x900 cells with a cell size of 1x1 pixels.
@@ -70,17 +87,21 @@ public class MiniGame2 extends World
         prepare();
         prepareWorld();        
     }   
-
+    /**
+     * Prepares the score, truck and train
+     */
     private void prepareWorld()
     {
         Truck x = new Truck(4);
         addObject(x, 108,900);
         Train t = new Train();
         addObject(t, 40,900);        
-       showScore(); 
-       
-    }
+        showScore(); 
 
+    }
+    /**
+     * Prepares the boat
+     */
     private void prepare()
     {
         int counter = 0;
@@ -125,6 +146,9 @@ public class MiniGame2 extends World
         }  
         joinSeperateLists();
     }
+    /**
+     * Adds the container to the correct list
+     */
     private void addToList(MainContainer main, int count)
     {
         switch(count){

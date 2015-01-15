@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=HoverClass\ OrgPath
-comment0.target=void\ onMouseHover(java.lang.Class,\ java.lang.String)
-comment0.text=The\ function\ onMouseHover\ replaces\ the\ image\ with\ text\ when\ the\ mouse\ hovers\ over\ it
-comment1.params=DT
-comment1.target=greenfoot.GreenfootImage\ DisplayDescription(java.lang.Class)
-comment1.text=The\ function\ DisplayDescription\ returns\ an\ images\ with\ the\ description\ of\ the\ mini-game.
-numComments=2

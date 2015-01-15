@@ -13,9 +13,11 @@ public class Wagon extends Containergame2
     private int speed = 1;
     private boolean trainSet = false;
     private Train x;
-    public Wagon(MiniGame2 x)
+    public boolean ai;
+    public Wagon(MiniGame2 x, boolean isAi)
     {
-        super(x);
+        super(x,isAi);
+        ai = isAi;
     }
    
     /**

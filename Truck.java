@@ -10,31 +10,37 @@ public class Truck extends Vehicle
 {
     private final int speed = 1;
     private final String truckImagePath = "images/Small/truck.png";
-    
+    public boolean ai;
     /**
      * Act - do whatever the Truck wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */   
-    public Truck(int type){
+    public Truck(int type, boolean isAi){
 
         if (type == 4){
             setImage(truckImagePath);
         }
-
+        ai = isAi;
     }
 
     public void act()  
     {
-        if(getTruckState()){
-            moveTruck();    
-        }
-        spawnContainer();    
-        if(isAtEdge())
+        if(ai)
         {
-            getWorld().removeObject(this);
+            move(1);
         }
-
+        else{
+            if(getTruckState()){
+                moveTruck();    
+            }
+            spawnContainer();    
+            if(isAtEdge())
+            {
+                getWorld().removeObject(this);
+            }
+        }
     }    
+
     /**
      * Moves the truck at a certain speed
      */
@@ -42,13 +48,14 @@ public class Truck extends Vehicle
     {
         setLocation(getX(), getY() - speed);
     }
+
     /**
      * Adds a new contianer to the world when needed
      */
     private void spawnContainer()
     {
         if(getY() == 850){
-            Containergame2 c = new Containergame2((MiniGame2) getWorld());
+            Containergame2 c = new Containergame2((MiniGame2) getWorld(), false);
             getWorld().addObject(c,108,900);
         }
     }

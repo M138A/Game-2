@@ -8,6 +8,7 @@ import java.util.*;
  */
 public class MiniGame2 extends World
 {
+    public int overAllScore = 0;
     public boolean loadedTrucksCanMove = false;
     private int Counter = 0;
     private int Xmargin = 284;
@@ -31,6 +32,16 @@ public class MiniGame2 extends World
      * Constructor for objects of class MiniGame1.
      * 
      */
+    public void setScore(int x){
+        overAllScore += x;
+    }
+    public int getScore()
+    {
+        return overAllScore;
+    }
+    public void showScore(){
+        this.showText(getScore() +  "", 880,20 );
+    }
     private void joinSeperateLists()
     {
         allContainersOnBoat.addAll(containersnul);
@@ -42,13 +53,11 @@ public class MiniGame2 extends World
     public void removeFromList(int index){
         allContainersOnBoat.remove(index);
     }
-
+    
     public List<MainContainer> getContainerList()
     {
         return allContainersOnBoat;
-    }
-
-    
+    }   
 
     public MiniGame2()
     {    
@@ -56,16 +65,19 @@ public class MiniGame2 extends World
         super(900, 900, 1); 
         prepare();
         prepareWorld();        
-    }   
+    }
 
     private void prepareWorld()
     {
-        Truck x = new Truck(4);
+        Truck x = new Truck(4,false);
         addObject(x, 108,900);
-        Train t = new Train();
-        addObject(t, 40,900);        
+        Train t = new Train(false);
+        addObject(t, 40,900);   
+    Truck x1 = new Truck(4,true);
+        addObject(x1, 792,900);
+        showScore();
     }
-
+    
     private void prepare()
     {
         int counter = 0;
@@ -84,16 +96,16 @@ public class MiniGame2 extends World
                     YmarginBottom = YbottomSmall;
                     sizeCont2 = 1;
                 }
-                MainContainer x = new MainContainer(sizeCont,colorCont);
+                MainContainer x = new MainContainer(sizeCont,colorCont,false);
                 addToList(x,counter);
                 addObject(x, Xmargin, YmarginTop);
 
                 if (sizeCont == 1){           
-                    MainContainer y =new MainContainer(sizeCont2,colorCont2);
+                    MainContainer y =new MainContainer(sizeCont2,colorCont2,false);
                     addToList(y, counter);
                     addObject(y, Xmargin, YmarginBottom);
                 } else if (sizeCont == 2){
-                    MainContainer z =new MainContainer(sizeCont2,colorCont2);
+                    MainContainer z =new MainContainer(sizeCont2,colorCont2,false);
                     addToList(z,counter);
                     addObject(z, Xmargin, YmarginBottom);
                 }

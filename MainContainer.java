@@ -21,6 +21,7 @@ public class MainContainer extends Actor
     private int currentImg;
     public int impSize;
     public int impColor;
+    public boolean ai = false;
     /**
      * Act - do whatever the Container wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -70,12 +71,13 @@ public class MainContainer extends Actor
         }
     }
 
-    public MainContainer(int newSize, int newColor) {
+    public MainContainer(int newSize, int newColor, boolean isAi) {
         color = newColor;
         size = newSize;
         setImage(size, color);
         impSize = newSize;
         impColor = newColor;
+        ai = isAi;
     }
     
 

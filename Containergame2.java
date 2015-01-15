@@ -27,35 +27,41 @@ public class Containergame2 extends Vehicle
      */
     public boolean loaded = false;
     private boolean imageSet;
-    
+    private int score;
+
     /**
      * The type of the container
      */
     public int t;
     public int index;
+    public boolean ai;
 
-    public Containergame2(MiniGame2 theWorld){
-         setContainer(getRandomContainerType(theWorld));
-        //imageSet = false; 
+    public Containergame2(MiniGame2 theWorld, boolean isAi){
+        setContainer(getRandomContainerType(theWorld));
+        isAi = ai;
     }
 
     /**
      * Sets the correct image for the container
      * 
-    */
-   public void setContainer(int type)
+     */
+    public void setContainer(int type)
     {
-       t = type;
+        t = type;
         if(loaded == false){
             switch(type)
             {
                 case 0: setImage(bigContainerDarkImagePath);
+                score = 10;
                 break;
                 case 1: setImage(bigContainerLightImagePath);
+                score = 10;
                 break;
                 case 2: setImage(smallContainerDarkImagePath);
+                score = 5;
                 break;
                 case 3: setImage(smallContainerLightImagePath);
+                score = 5;
                 break;
             }
         }
@@ -63,14 +69,18 @@ public class Containergame2 extends Vehicle
             switch(type)
             {
                 case 0: setImage(bigContainerDarkImageFullPath);
+                score = 10;
                 break;
                 case 1: setImage(bigContainerLightImageFullPath);
+                score = 10;
                 break;
                 case 2: setImage(smallContainerDarkImageFullPath);
+                score = 5;
                 break;
                 case 3: setImage(smallContainerLightImageFullPath);
+                score = 5;
                 break;
-                
+
             }
         }
     }
@@ -81,32 +91,28 @@ public class Containergame2 extends Vehicle
     public int getRandomContainerType(MiniGame2 myWorld){
         List<MainContainer> CList = myWorld.getContainerList();
         if(CList.size() > 0){
-        int random = Greenfoot.getRandomNumber(CList.size());
-        System.out.println(random);
-        MainContainer x = CList.get(random);
-        int size = x.impSize;
-        int color = x.impColor;
-        myWorld.removeFromList(random);
-        return x.convertType(size,color);
-    }
-   
-    else{
+            int random = Greenfoot.getRandomNumber(CList.size());
+            MainContainer x = CList.get(random);
+            int size = x.impSize;
+            int color = x.impColor;
+            myWorld.removeFromList(random);
+            return x.convertType(size,color);
+        }
+
+        else{
             myWorld.showText("Well done",400,300);
             Greenfoot.stop();
             return 0;
-    }
-
-        //System.out.println(myWorld.getContainerList());
-    
-        //return Greenfoot.getRandomNumber(4);
+        }
     }
 
     public void act() 
     {
-        
+
         if(isAtEdge() && checkLoadingState()){
-            //MiniGame2 w = (MiniGame2) getWorld();
-            //w.removeFromList(index);
+            MiniGame2 mg2 = (MiniGame2) getWorld();
+            mg2.setScore(score);
+            mg2.showScore();
             getWorld().removeObject(this);
             return;
         }
@@ -181,7 +187,7 @@ public class Containergame2 extends Vehicle
      */
     private void addTruck()
     {
-        Truck x = new Truck(4);
+        Truck x = new Truck(4,false);
         getWorld().addObject(x,108,900);
     }
 

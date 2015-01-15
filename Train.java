@@ -9,7 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Train extends Vehicle
 {
     public int speed = 1;
-
+    public boolean ai;
+    public Train(boolean isAi)
+    {
+        ai = isAi;
+    }
     /**
      * Act - do whatever the Train wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -37,7 +41,7 @@ public class Train extends Vehicle
         MiniGame2 game = (MiniGame2) getWorld();
         int sz = (game.getContainerList()).size();
         if(sz >= 3){
-        Train t = new Train();
+        Train t = new Train(false);
             getWorld().addObject(t,40,900);
             getWorld().removeObject(this);
         }
@@ -53,7 +57,7 @@ public class Train extends Vehicle
     private void createNewWagon(int spawnPoint)
     {
 
-        Containergame2 w = new Wagon((MiniGame2) getWorld());
+        Containergame2 w = new Wagon((MiniGame2) getWorld(), false);
         getWorld().addObject(w,40,900);
     }
     /**

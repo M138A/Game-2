@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Score\ getScore()
+comment1.params=
+comment1.target=Game1()
+comment1.text=\ \ \ \ private\ boolean\ checkIfGameOver()\ {\n\ \ \ \ \ \ \ \ if\ ()\ {\n\ \ \ \ \ \ \ \ \ \ \ \ return\ true;\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ return\ false;\n}
+comment2.params=
+comment2.target=Counter\ getCounter()
+comment3.params=
+comment3.target=void\ act()
+comment4.params=
+comment4.target=void\ spawnRateSlow()
+comment5.params=
+comment5.target=void\ spawnRateMedium()
+comment6.params=
+comment6.target=void\ prepare()
+numComments=7

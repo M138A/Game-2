@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment0.text=\n\ Act\ -\ do\ whatever\ the\ Train\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment1.params=
+comment1.target=void\ addNewTrain()
+comment1.text=\n\ Adds\ a\ new\ train\ to\ the\ world\ when\ there\ are\ 3\ or\ more\ containers\ on\ the\ ship\n
+comment2.params=spawnPoint
+comment2.target=void\ createNewWagon(int)
+comment2.text=\n\ Creates\ a\ new\ wagon\ and\ adds\ it\ to\ the\ world\n
+comment3.params=
+comment3.target=boolean\ allWagonsLoaded()
+comment3.text=\n\ Returns\ true\ when\ all\ the\ wagons\ are\ loaded\n
+comment4.params=
+comment4.target=boolean\ trainHasToStop()
+comment4.text=\n\ Returns\ true\ when\ the\ train\ has\ arrived\ at\ it's\ stopping\ point\n
+comment5.params=
+comment5.target=void\ requestNewWagon()
+comment5.text=\n\ Creates\ a\ new\ wagon\ if\ needed\n
+comment6.params=
+comment6.target=void\ moveTrain()
+comment6.text=\n\ Moves\ the\ train\ at\ a\ certain\ speed\n
+numComments=7

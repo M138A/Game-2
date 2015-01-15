@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment0.text=\n\ Act\ -\ do\ whatever\ the\ Container\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment1.params=
+comment1.target=void\ checkHoveringTruck()
+comment1.text=\n\ Checks\ if\ the\ container\ is\ hovering\ over\ a\ truck\n
+comment2.params=size\ color
+comment2.target=int\ convertType(int,\ int)
+comment2.text=\n\ Converts\ the\ type\ to\ the\ format\ used\ in\ the\ class\ Containergame2\n
+comment3.params=newSize\ newColor
+comment3.target=MainContainer(int,\ int)
+comment4.params=a\ b
+comment4.target=void\ setImage(int,\ int)
+comment5.params=c\ d
+comment5.target=void\ checkDragging(int,\ int)
+numComments=6
